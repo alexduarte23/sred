@@ -11,7 +11,6 @@ SelfReDepth was fine-tuned and tested particularly with Time-of-Flight depth sen
 
 
 ## Installation
----
 
 <br>
 
@@ -43,7 +42,6 @@ A [pre-compiled](./src/sred/utils/fast_utils/pre-built/) instance of this librar
 
 
 ## GPU Support
----
 
 SelfReDepth supports GPU accelerated computation through Tensorflow. To enable it you must have and NVIDIA graphics card and install the CUDA and cuDNN versions compatible with your installed tensorflow version.
 
@@ -56,7 +54,7 @@ More information on this can be found in the following links:
 
 
 ## How To Use
----
+
 In [example](./examples/train_and_test.ipynb) you can find a working example written as a jupyter notebook.
 
 To run the example you need to install jupyter and gdown:
@@ -116,7 +114,6 @@ model.predict(image) # ndarray of shape (1,H,W,C)
 ```
 
 ## Extra
----
 
 SelfReDepth also comes with additional image handling and dataset generation functions that might be useful during development.
 
