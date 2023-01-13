@@ -1,9 +1,6 @@
 # SelfReDepth: A Self-Supervised Real-Time Depth Denoising and Restoration Approach for Consumer-Grade Sensors
 
-<div style="background-color:white; color:black; font-weight:bold" align="center">
-    <img src="./images/model_train.svg"/>
-    <p>Training</p>
-</div>
+![SelfReDepth's architecture](./images/banner.png)
 
 SelfReDepth is a self-supervised deep learning approach to produce denoised and inpainted depth maps from RGB-D video sequences captured with depth sensors, such as the Kinect v2. The provided implementation exhibits real-time performance during inference if ran on sufficiently powerfull graphical hardware.
 
@@ -35,10 +32,12 @@ Part of SelfReDepth is implemented in C++ and linked to python as a shared libra
 A [pre-compiled](./src/sred/utils/fast_utils/pre-built/) instance of this library is already provided. If this doesn't work you must re-compiled it by:
 1. Opening the provided Visual Studio 2019 solution [here](./src/sred/utils/fast_utils/).
 2. Compiling the code in x64 architecture.
-3. At the start of your python code re-direct the utils module to your new generated .dll file.
-    ```python
-    sred.utils.setDLL('your_dll_path.dll')
-    ```
+3. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided dll file by the one you compiled. 
+
+    - Alternatively, you can also re-direct the utils module to your dll file.
+        ```python
+        sred.utils.setDLL('your_dll_path.dll')
+        ```
 
 
 ## GPU Support

@@ -4,8 +4,7 @@ import ctypes
 import pathlib
 
 
-#_dllpath = pathlib.Path(__file__).parent / "fast_utils/x64/Release/fast_utils.dll"
-_dllpath = pathlib.Path(__file__).parent / "fast_utils/pre-built/fast_utils.dll"
+_dllpath = pathlib.Path(__file__).parent / "fast_utils/shared/fast_utils.dll"
 
 _mydll = ctypes.cdll.LoadLibrary(str(_dllpath))
 
@@ -349,3 +348,9 @@ def cleanup_depth(d_img: np.ndarray, min_size: int) -> np.ndarray:
         c_out_ptr)
 
     return out_img
+
+
+if __name__ == "__main__":
+    print('Loaded lib:', getDLL())
+    print('Testing...')
+    hello_test()
