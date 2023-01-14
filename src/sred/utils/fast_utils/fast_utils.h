@@ -1,9 +1,13 @@
 #pragma once
 
-#ifdef FASTUTILS_EXPORTS
-#define FASTUTILS_API __declspec(dllexport)
+#if defined(_WIN32) || defined(WIN32) || defined(__WIN32__)
+#	ifdef FASTUTILS_EXPORTS
+#		define FASTUTILS_API __declspec(dllexport)
+#	else
+#		define FASTUTILS_API __declspec(dllimport)
+#	endif
 #else
-#define FASTUTILS_API __declspec(dllimport)
+#	define FASTUTILS_API
 #endif
 
 #include <cstdint>

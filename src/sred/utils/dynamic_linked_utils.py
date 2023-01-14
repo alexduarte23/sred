@@ -2,21 +2,29 @@ from typing import Optional, Union
 import numpy as np
 import ctypes
 import pathlib
+import platform
 
+if platform.uname()[0] == 'Windows':
+    _dllsuffix = '.dll'
+elif platform.uname()[0] == 'Linux':
+    _dllsuffix = '.so'
+else:
+    _dllsuffix = '.dylib'
 
-_dllpath = pathlib.Path(__file__).parent / "fast_utils/shared/fast_utils.dll"
+_dllpath = pathlib.Path(__file__).parent / ("fast_utils/shared/fast_utils" + _dllsuffix)
 
 _mydll = ctypes.cdll.LoadLibrary(str(_dllpath))
 
 
 def setDLL(path: Union[str, pathlib.Path]) -> None:
+    global _mydll, _dllpath, _dllsuffix
+
     dllpath = pathlib.Path(path)
     if not dllpath.is_file():
         raise RuntimeError('File not found.')
-    if dllpath.suffix != '.dll':
+    if dllpath.suffix != _dllsuffix:
         raise RuntimeError('Bad file extension, only .dll suported.')
 
-    global _mydll, _dllpath
     _mydll = ctypes.cdll.LoadLibrary(str(dllpath))
     _dllpath = dllpath
 

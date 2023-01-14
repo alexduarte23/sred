@@ -16,50 +16,52 @@ SelfReDepth was fine-tuned and tested particularly with Time-of-Flight depth sen
 <br>
 
 ### **Install Package**
-To install SelfReDepth you should start by cloning this repository:
+To install SelfReDepth you should clone this repository and locally install the package:
 
     $ git clone https://github.com/alexduarte23/sred.git
-
-And then, from the cloned directory, locally install the package:
-
     $ cd sred
+    $ pip install --upgrade pip setuptools wheel
     $ pip install -e .
+
+Certain sections of SelfReDepth also use tkinter (usually packaged with python). If you run into missing tkinter errors while using SelfReDepth, follow the instructions provided in the [tkinter documentation](https://tkdocs.com/tutorial/install.html).
+
 
 
 ### **Compile C++ Code (optional)**
 
 Part of SelfReDepth is implemented in C++ and linked to python as a shared library.
-A [pre-compiled](./src/sred/utils/fast_utils/pre-built/) instance of this library is already provided. If this doesn't work you must re-compiled:
-1. Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/).
-2. Build de project (ctrl+B) in Release mode and x64 architecture.
-3. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided dll file by the one you just compiled.
+Pre-compiled instances of this library for Windows and Linux are already [provided](./src/sred/utils/fast_utils/shared/). If these don't work on your system or you're using MacOS, you must re-build fast_utils from source.
 
-    - Alternatively, you can also re-direct the utils module to your dll file.
+On Windows:
+1. Build fast_utils:
+    - [Windows] Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project (ctrl+B) in Release mode and x64 architecture. The resulting file should be at <./src/sred/utils/fast_utils/x64/Release/fast_utils.dll>.
+    - [Linux/MacOS] Run the provided Makefile: `$ make`. The resulting file should be at <./src/sred/utils/fast_utils/fast_utils.so> (or .dylib for MacOS).
+2. In <./src/sred/utils/fast_utils/shared/>, replace the provided shared library file by the one you just compiled.
+
+    - Alternatively, you can also re-direct the utils module to your re-compiled file.
         ```python
-        sred.utils.setDLL('your_dll_path.dll')
+        sred.utils.setDLL('your_dll_path.dll') # or .so for Linux and .dylib for MacOS
         ```
 
 
 ## GPU Support
 
-SelfReDepth supports GPU accelerated computation through Tensorflow. To enable it you must have and NVIDIA graphics card and install the CUDA and cuDNN versions compatible with your installed tensorflow version.
+SelfReDepth supports GPU accelerated computation through Tensorflow. To enable it you must have and NVIDIA graphics card and install the CUDA and cuDNN versions compatible with your tensorflow version.
 
 More information on this can be found in the following links:
 - [Tensorflow webpage on GPU support](https://www.tensorflow.org/install/pip#windows-native)
 - [CUDA and cuDNN version compatibility](https://www.tensorflow.org/install/source#gpu)
 - [Installation guide by NVIDIA](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows)
 
-**Warning**: Tensorflow only provides GPU support for native Windows up to version 2.10. As such, during installation SelfReDepth limits the Tensorflow installation to said version.
+**Warning**: Tensorflow only provides GPU support for native Windows up to version 2.10. As such, during installation on a Windows system, SelfReDepth limits the Tensorflow installation to said version. If you wish to use a more recent version, upgrade Tensorflow manually. E.g.: `pip install tensorflow --upgrade`
 
 
 ## How To Use
 
 In [example](./examples/train_and_test.ipynb) you can find a working example written as a jupyter notebook.
+    - To run the example you need to install jupyter and gdown:
 
-To run the example you need to install jupyter and gdown:
-    
-    $ pip install jupyter
-    $ pip install gdown
+        $ pip install notebook gdown
 
 More succinctly, to **prepape the model** with your data you should:
 1. Import SelfReDepth

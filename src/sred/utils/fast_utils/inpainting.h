@@ -4,6 +4,7 @@
 #include "Image.h"
 #include <map>
 #include <vector>
+#include <cmath>
 
 #define KNOWN 0
 #define BAND 1

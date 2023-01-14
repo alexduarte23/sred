@@ -4,7 +4,6 @@ import tensorflow as tf
 import numpy as np
 import pathlib
 import matplotlib.pyplot as plt
-import tkinter as tk
 
 
 def read_img(source: Union[str, pathlib.Path, np.ndarray, list, tuple], verbose: Optional[bool] = False) -> np.ndarray:
@@ -115,6 +114,8 @@ def write_img(image: np.ndarray, filename: Optional[Union[str, pathlib.Path]] = 
     """
 
     if filename == None or filename == '':
+        import tkinter as tk
+        
         root = tk.Tk()
         #root.overrideredirect(True)
         root.attributes('-alpha', 0)

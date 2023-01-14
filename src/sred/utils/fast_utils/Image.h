@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <algorithm>
 
 
 /*template<typename base_unit, uint32_t N = 3>
