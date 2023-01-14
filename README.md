@@ -29,10 +29,10 @@ And then, from the cloned directory, locally install the package:
 ### **Compile C++ Code (optional)**
 
 Part of SelfReDepth is implemented in C++ and linked to python as a shared library.
-A [pre-compiled](./src/sred/utils/fast_utils/pre-built/) instance of this library is already provided. If this doesn't work you must re-compiled it by:
-1. Opening the provided Visual Studio 2019 solution [here](./src/sred/utils/fast_utils/).
-2. Compiling the code in x64 architecture.
-3. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided dll file by the one you compiled. 
+A [pre-compiled](./src/sred/utils/fast_utils/pre-built/) instance of this library is already provided. If this doesn't work you must re-compiled:
+1. Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/).
+2. Build de project (ctrl+B) in Release mode and x64 architecture.
+3. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided dll file by the one you just compiled.
 
     - Alternatively, you can also re-direct the utils module to your dll file.
         ```python
