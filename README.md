@@ -9,12 +9,6 @@ SelfReDepth was fine-tuned and tested particularly with Time-of-Flight depth sen
 
 ## Installation
 
-<br>
-
-**Warning:** Only native Windows is supported out-of-the-box for now. To add support for Unix or MacOS, [dynamic_linked_utils.py](./src/sred/utils/dynamic_linked_utils.py) and [fast_utils/](./src/sred/utils/fast_utils/) must be altered and compiled so that the shared library functions in your platform.
-
-<br>
-
 ### **Install Package**
 To install SelfReDepth you should clone this repository and locally install the package:
 
@@ -24,7 +18,6 @@ To install SelfReDepth you should clone this repository and locally install the 
     $ pip install -e .
 
 Certain sections of SelfReDepth also use tkinter (usually packaged with python). If you run into missing tkinter errors while using SelfReDepth, follow the instructions provided in the [tkinter documentation](https://tkdocs.com/tutorial/install.html).
-
 
 
 ### **Compile C++ Code (optional)**
@@ -59,9 +52,10 @@ More information on this can be found in the following links:
 ## How To Use
 
 In [example](./examples/train_and_test.ipynb) you can find a working example written as a jupyter notebook.
-    - To run the example you need to install jupyter and gdown:
+- To run the example you need to install jupyter and gdown, and run the notebook app (you may also need to first logout of your OS account for the jupyter command to work).
 
         $ pip install notebook gdown
+        $ jupyter notebook
 
 More succinctly, to **prepape the model** with your data you should:
 1. Import SelfReDepth
