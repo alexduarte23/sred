@@ -25,9 +25,8 @@ Certain sections of SelfReDepth also use tkinter (usually packaged with python).
 Part of SelfReDepth is implemented in C++ and linked to python as a shared library.
 Pre-compiled instances of this library for Windows and Linux are already [provided](./src/sred/utils/fast_utils/shared/). If these don't work on your system or you're using MacOS, you must re-build fast_utils from source.
 
-On Windows:
 1. Build fast_utils:
-    - **[Windows]** Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project (ctrl+B) in Release mode and x64 architecture. The resulting file should be at **\<Library Root\>/x64/Release/fast_utils.dll**.
+    - **[Windows]** Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project (CTRL + B) in the Release x64 setting. The resulting file should be at **\<Library Root\>/x64/Release/fast_utils.dll**.
     - **[Linux/MacOS]** Run the provided Makefile: `$ make`. The resulting file should be at **\<Library Root\>/fast_utils.so** (.dylib for MacOS).
 2. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided shared library file by the one you just compiled.
 
@@ -39,7 +38,7 @@ On Windows:
 
 ## GPU Support
 
-SelfReDepth supports GPU accelerated computation through Tensorflow. To enable it you must have and NVIDIA graphics card and install the CUDA and cuDNN versions compatible with your tensorflow version.
+SelfReDepth supports GPU accelerated computation through Tensorflow. To enable it you must have an NVIDIA graphics card and install the CUDA and cuDNN versions compatible with your tensorflow version.
 
 More information on this can be found in the following links:
 - [Tensorflow webpage on GPU support](https://www.tensorflow.org/install/pip#windows-native)
@@ -52,7 +51,7 @@ More information on this can be found in the following links:
 ## How To Use
 
 In [example](./examples/train_and_test.ipynb) you can find a working example written as a jupyter notebook.
-- To run the example you need to install jupyter and gdown, and run the notebook app (you may also need to first logout of your OS account for the jupyter command to work).
+- To run the example you need to install jupyter and gdown, and run the notebook app (you may also need to restart your current OS user session for the jupyter command to work).
 
         $ pip install notebook gdown
         $ jupyter notebook
@@ -82,7 +81,7 @@ More succinctly, to **prepape the model** with your data you should:
     )
     ```
 
-4. Define and train the model
+4. And define and train the model
     
     ```python
     model = sred.SReDModel(frame_shape=(424,512,1), input_frames=3, residual=-1)
@@ -97,7 +96,7 @@ More succinctly, to **prepape the model** with your data you should:
     )
     ```
 
-You can then **use the train model** to denoise and inpaint depth maps:
+You can then **use the trained model** to denoise and inpaint depth maps:
 
 ```python
 model.predict(test_ds)
@@ -116,7 +115,7 @@ As well as 3 GUI [tools](./src/sred/tools/), of which the following two are part
 - **depth_viewer**: helps visualizing depth videos.
 - **registration_tuner**: helps determining and fine-tuning the sensor instinsic and extrinsic paraemters used for target generation section of SelfReDepth.
 
-Which can be accessed by importing:
+To access these insert the following line in your code:
 
 ```python
 import sred.tools
