@@ -27,9 +27,9 @@ Pre-compiled instances of this library for Windows and Linux are already [provid
 
 On Windows:
 1. Build fast_utils:
-    - [Windows] Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project (ctrl+B) in Release mode and x64 architecture. The resulting file should be at <./src/sred/utils/fast_utils/x64/Release/fast_utils.dll>.
-    - [Linux/MacOS] Run the provided Makefile: `$ make`. The resulting file should be at <./src/sred/utils/fast_utils/fast_utils.so> (or .dylib for MacOS).
-2. In <./src/sred/utils/fast_utils/shared/>, replace the provided shared library file by the one you just compiled.
+    - **[Windows]** Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project (ctrl+B) in Release mode and x64 architecture. The resulting file should be at **\<Library Root\>/x64/Release/fast_utils.dll**.
+    - **[Linux/MacOS]** Run the provided Makefile: `$ make`. The resulting file should be at **\<Library Root\>/fast_utils.so** (.dylib for MacOS).
+2. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided shared library file by the one you just compiled.
 
     - Alternatively, you can also re-direct the utils module to your re-compiled file.
         ```python
