@@ -26,7 +26,7 @@ Part of SelfReDepth is implemented in C++ and linked to python as a shared libra
 Pre-compiled instances of this library for Windows and Linux are already [provided](./src/sred/utils/fast_utils/shared/). If these don't work on your system or you're using MacOS, you must re-build fast_utils from source.
 
 1. Build fast_utils:
-    - **[Windows]** Open the provided Visual Studio 2020 solution [here](./src/sred/utils/fast_utils/), and build the project in the Release x64 setting. The resulting file should be at **\<Library Root\>/x64/Release/fast_utils.dll**.
+    - **[Windows]** Open the provided Visual Studio 2022 solution [here](./src/sred/utils/fast_utils/), and build the project in the Release x64 setting. The resulting file should be at **\<Library Root\>/x64/Release/fast_utils.dll**.
     - **[Linux/MacOS]** Run the provided Makefile: `$ make`. The resulting file should be at **\<Library Root\>/fast_utils.so** (.dylib for MacOS).
 2. In [./src/sred/utils/fast_utils/shared/](./src/sred/utils/fast_utils/shared/), replace the provided shared library file by the one you just compiled.
 
